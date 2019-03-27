@@ -1,8 +1,7 @@
 package br.com.bd1start.aula2;
 
-import static org.junit.Assert.assertEquals;
-
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Assert;
@@ -44,7 +43,7 @@ public class ExercicioAula11Teste {
 		Assert.assertEquals("Allana", nomes.get(1));
 	}
 
-	// Exercicio 5
+	// Exercicio 4
 	@Test
 	public void deveRetornarListaCoresOrdenada() {
 		ExercicioAula11 exercicioaula11 = new ExercicioAula11();
@@ -55,7 +54,7 @@ public class ExercicioAula11Teste {
 		Assert.assertEquals("Verde", cores.get(2));
 	}
 
-	// Exercicio 6 - conferir hihihi
+	// Exercicio 5 
 	@Test
 	public void removerCor() {
 		ExercicioAula11 exercicioAula11 = new ExercicioAula11();
@@ -66,7 +65,7 @@ public class ExercicioAula11Teste {
 
 	}
 
-	// Exercicio 7
+	// Exercicio 6
 	@Test
 	public void listaInvertida() {
 		ExercicioAula11 exercicioAula11 = new ExercicioAula11();
@@ -84,7 +83,29 @@ public class ExercicioAula11Teste {
 		Assert.assertEquals("A", listaLetras.get(4));
 	}
 
-	// Exercicio 9
+	// Exercicio 7
+
+	@Test
+	public void deveRetornarNumerosSeparados() {
+		ExercicioAula11 ex11 = new ExercicioAula11();
+
+		List<Integer> numeros = new ArrayList<>();
+		for (int i = 0; i < 10; i++) {
+			numeros.add(i);
+		}
+
+		List<List<Integer>> resultado = new ArrayList<List<Integer>>();
+		resultado = ex11.retonarListaDeListaParImpar(numeros);
+		List<Integer> par = resultado.get(0);
+		List<Integer> impar = resultado.get(1);
+		List<Integer> listPares = Arrays.asList(0, 2, 4, 6, 8);
+		List<Integer> listImpares = Arrays.asList(1, 3, 5, 7, 9);
+
+		Assert.assertEquals(listPares, par);
+		Assert.assertEquals(listImpares, impar);
+	}
+
+	// Exercicio 8
 	@Test
 	public void listaOrdenada() {
 		ExercicioAula11 exercicioAula11 = new ExercicioAula11();
@@ -121,7 +142,7 @@ public class ExercicioAula11Teste {
 		Assert.assertEquals("WAGNER", listaNomes.get(13));
 	}
 
-	// Exercicio 10
+	// Exercicio 9
 	@Test
 	public void somaValorDaLista() {
 		ExercicioAula11 exercicioAula11 = new ExercicioAula11();
@@ -133,7 +154,7 @@ public class ExercicioAula11Teste {
 		Assert.assertEquals(60, resultado);
 	}
 
-	// Exercicio 11
+	// Exercicio 10
 	@Test
 	public void mediaValorDaLista() {
 		ExercicioAula11 exercicioAula11 = new ExercicioAula11();
@@ -145,7 +166,7 @@ public class ExercicioAula11Teste {
 		Assert.assertEquals(6, resultado, 0.001);
 	}
 
-	// Exercicio 12
+	// Exercicio 11
 	@Test
 	public void menorValorDaLista() {
 		ExercicioAula11 exercicioAula11 = new ExercicioAula11();
@@ -157,7 +178,7 @@ public class ExercicioAula11Teste {
 		Assert.assertEquals(10, resultado);
 	}
 
-	// Exercicio 13
+	// Exercicio 12
 	@Test
 	public void maiorValorDaLista() {
 		ExercicioAula11 exercicioAula11 = new ExercicioAula11();
@@ -169,7 +190,7 @@ public class ExercicioAula11Teste {
 		Assert.assertEquals(1000, resultado);
 	}
 
-	// Exercicio 14
+	// Exercicio 13
 	@Test
 	public void retornaApenasPares() {
 		ExercicioAula11 exercicioAula11 = new ExercicioAula11();
@@ -184,5 +205,16 @@ public class ExercicioAula11Teste {
 		Assert.assertEquals(Integer.valueOf(2), listaNumeros.get(0));
 		Assert.assertEquals(Integer.valueOf(4), listaNumeros.get(1));
 		Assert.assertEquals(Integer.valueOf(6), listaNumeros.get(2));
+	}
+	//Exercicio 14
+	@Test
+	public void retornaVogais() {
+		ExercicioAula11 exercicioAula11 = new ExercicioAula11();
+		String frase = "Pague o Aluguel";
+		List<List<Character>> resultado = new ArrayList<List<Character>>();
+		resultado = exercicioAula11.retornaLetras(frase);
+		List<Character> listTest = Arrays.asList('a', 'u', 'e', 'o', 'a', 'u', 'u', 'e');
+		List<Character> listVogais = resultado.get(0);
+		Assert.assertEquals(listTest, listVogais);
 	}
 }
